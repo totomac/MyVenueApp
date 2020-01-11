@@ -21,7 +21,7 @@ class DetailsViewModel @Inject constructor(
             val result = repo.loadVenueDetails(venueId)
             when (result) {
                 is AsyncResponse.Success -> onSuccess(result.data)
-                is AsyncResponse.Failed -> onError()
+                is AsyncResponse.Failed -> onError(result.exception.message.toString())
             }.exhaustive
         }
     }
@@ -33,8 +33,8 @@ class DetailsViewModel @Inject constructor(
             )
     }
 
-    private fun onError() {
-        _uiObservable.value = DetailsViewState.OnError("An error happened")
+    private fun onError(error: String) {
+        _uiObservable.value = DetailsViewState.OnError(error)
     }
 
     class Factory(

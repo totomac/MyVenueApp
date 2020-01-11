@@ -1,7 +1,10 @@
 package com.thomasmacquart.apps.venueapp.venues.ui.viewmodel
 
 import androidx.fragment.app.FragmentActivity
-import androidx.lifecycle.*
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.ViewModelProviders
+import androidx.lifecycle.viewModelScope
 import com.thomasmacquart.apps.venueapp.SingleLiveEvent
 import com.thomasmacquart.apps.venueapp.core.AsyncResponse
 import com.thomasmacquart.apps.venueapp.core.extensions.exhaustive
@@ -26,7 +29,7 @@ class MapViewModel @Inject constructor(private val repo : VenuesRepo) : ViewMode
             repo.loadVenues(LatitudeLongitude(lat, lng), bounds).collect{ result ->
                 when (result) {
                     is AsyncResponse.Success -> onSuccess(result.data)
-                    is AsyncResponse.Failed -> onError()
+                    is AsyncResponse.Failed -> onError(result.exception.message.toString())
                 }.exhaustive
             }
         }
@@ -39,8 +42,8 @@ class MapViewModel @Inject constructor(private val repo : VenuesRepo) : ViewMode
             )
     }
 
-    private fun onError() {
-        _uiObservable.value = MapViewState.ErrorState("oops I did it again")
+    private fun onError(error : String) {
+        _uiObservable.value = MapViewState.ErrorState(error)
     }
 
     class Factory(
