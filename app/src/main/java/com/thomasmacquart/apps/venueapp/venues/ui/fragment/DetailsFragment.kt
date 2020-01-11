@@ -52,7 +52,11 @@ class DetailsFragment : Fragment() {
         val venueId = DetailsFragmentArgs.fromBundle(
             requireArguments()
         ).venueId
-        viewModel.loadVenueDetails(venueId)
+
+        if (savedInstanceState == null) {
+            viewModel.loadVenueDetails(venueId)
+        }
+
     }
 
     private fun populateData(venue : Venue) {
