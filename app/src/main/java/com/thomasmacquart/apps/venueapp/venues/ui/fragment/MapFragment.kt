@@ -69,14 +69,6 @@ class MapFragment : Fragment(), OnMapReadyCallback, GoogleMap.OnCameraIdleListen
         childFragmentManager.beginTransaction().add(R.id.map_fragment_container, fragment).commit()
         fragment.getMapAsync(this)
 
-        map_goto_details_button.setOnClickListener {
-            val action =
-                MapFragmentDirections.actionMapFragmentToDetailsFragment2(
-                    "1"
-                )
-            view.findNavController().navigate(action)
-        }
-
         viewModel.getUiObservable().observe(this, Observer {
             when (it) {
                 is MapViewState.UpdateMapState -> populateData(it.venues)
