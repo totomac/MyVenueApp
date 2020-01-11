@@ -26,9 +26,9 @@ class VenuesRepo @Inject constructor(
         flow {
             emit(AsyncResponse.Success(cache.getVenues(bounds)))
 
-            val ll = "${target.latitude},${target.longitude}"
-            val swBounds = "${bounds.southWest.latitude},${bounds.southWest.longitude}"
-            val neBounds = "${bounds.northEast.latitude},${bounds.northEast.longitude}"
+            val ll = target.formatForQuery()
+            val swBounds = bounds.southWest.formatForQuery()
+            val neBounds = bounds.northEast.formatForQuery()
 
             val result = safeApiResult { api.searchVenues(ll, swBounds, neBounds, foodCategory) }
             when (result) {
