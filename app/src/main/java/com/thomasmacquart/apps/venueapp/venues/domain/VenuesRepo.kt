@@ -20,7 +20,8 @@ class VenuesRepo @Inject constructor(
     private val detailsApi : VenueDetailsApi
 ) : BaseRepository() {
 
-    private val foodCategory = "4d4b7105d754a06374d81259"
+    private val FOOD_CATEGORY = "4d4b7105d754a06374d81259"
+    private val INTENT = "browse"
 
     fun loadVenues(target: LatitudeLongitude, bounds: MapBounds): Flow<AsyncResponse<List<Venue>>> =
         flow {
@@ -30,7 +31,7 @@ class VenuesRepo @Inject constructor(
             val swBounds = bounds.southWest.formatForQuery()
             val neBounds = bounds.northEast.formatForQuery()
 
-            val result = safeApiResult { api.searchVenues(ll, swBounds, neBounds, foodCategory) }
+            val result = safeApiResult { api.searchVenues(ll, swBounds, neBounds, FOOD_CATEGORY, INTENT) }
             when (result) {
                 is AsyncResponse.Success -> {
                     cache.updateCache(result.data.venues)

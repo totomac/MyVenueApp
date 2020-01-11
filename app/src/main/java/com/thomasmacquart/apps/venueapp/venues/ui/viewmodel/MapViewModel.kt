@@ -2,6 +2,7 @@ package com.thomasmacquart.apps.venueapp.venues.ui.viewmodel
 
 import androidx.fragment.app.FragmentActivity
 import androidx.lifecycle.*
+import com.thomasmacquart.apps.venueapp.SingleLiveEvent
 import com.thomasmacquart.apps.venueapp.core.AsyncResponse
 import com.thomasmacquart.apps.venueapp.core.extensions.exhaustive
 import com.thomasmacquart.apps.venueapp.venues.data.entities.LatitudeLongitude
@@ -14,8 +15,11 @@ import javax.inject.Inject
 
 class MapViewModel @Inject constructor(private val repo : VenuesRepo) : ViewModel() {
 
-    private val _uiObservable = MutableLiveData<MapViewState>()
-    fun getUiObservable() : LiveData<MapViewState> = _uiObservable
+    /**
+     * [_uiObservable] ensure that markers are set only once during lifecycle of the fragment
+     */
+    private val _uiObservable = SingleLiveEvent<MapViewState>()
+    fun getUiObservable() : SingleLiveEvent<MapViewState> = _uiObservable
 
     fun loadVenues(lat : Double, lng : Double, bounds : MapBounds) {
         viewModelScope.launch {

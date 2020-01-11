@@ -10,5 +10,5 @@ interface VenuesSearchApi {
                              @Query("sw") swBounds : String,
                              @Query("ne") neBounds : String,
                              @Query("categoryId") categoryId : String,
-                             @Query("intent") intent : String = "browse") : Response<SearchResponse>
+                             @Query("intent") intent : String) : Response<SearchResponse>
 }
