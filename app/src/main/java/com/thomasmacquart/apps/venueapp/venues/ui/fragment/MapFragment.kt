@@ -92,7 +92,7 @@ class MapFragment : Fragment(), OnMapReadyCallback, GoogleMap.OnCameraIdleListen
             .addOnSuccessListener { location: Location? ->
                 location?.let {
                     val latlng = LatLng(it.latitude, it.longitude)
-                    mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latlng, 17f))
+                    mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(latlng, 17f))
                 }
 
             }
