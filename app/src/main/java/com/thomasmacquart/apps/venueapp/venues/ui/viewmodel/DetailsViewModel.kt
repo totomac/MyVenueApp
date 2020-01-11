@@ -6,6 +6,7 @@ import com.thomasmacquart.apps.venueapp.core.AsyncResponse
 import com.thomasmacquart.apps.venueapp.core.extensions.exhaustive
 import com.thomasmacquart.apps.venueapp.venues.data.entities.Venue
 import com.thomasmacquart.apps.venueapp.venues.domain.VenuesRepo
+import com.thomasmacquart.apps.venueapp.venues.ui.uimodel.DetailsUiModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -29,7 +30,7 @@ class DetailsViewModel @Inject constructor(
     private fun onSuccess(venue: Venue) {
         _uiObservable.value =
             DetailsViewState.OnPopulateData(
-                venue
+                DetailsUiModel(venue)
             )
     }
 
@@ -55,7 +56,7 @@ class DetailsViewModel @Inject constructor(
 }
 
 sealed class DetailsViewState {
-    data class OnPopulateData(val venue: Venue) : DetailsViewState()
+    data class OnPopulateData(val uiModel : DetailsUiModel) : DetailsViewState()
     data class OnError(val  error : String) : DetailsViewState()
     object OnLoading : DetailsViewState()
 }

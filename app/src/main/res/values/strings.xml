@@ -1,4 +1,4 @@
 <resources>
     <string name="app_name">VenueApp</string>
-
+    <string name="details_rating_unavailable">Rating is not available for this restaurant</string>
 </resources>

@@ -12,7 +12,7 @@ import androidx.lifecycle.Observer
 import com.thomasmacquart.apps.venueapp.R
 import com.thomasmacquart.apps.venueapp.VenueApp
 import com.thomasmacquart.apps.venueapp.core.extensions.exhaustive
-import com.thomasmacquart.apps.venueapp.venues.data.entities.Venue
+import com.thomasmacquart.apps.venueapp.venues.ui.uimodel.DetailsUiModel
 import com.thomasmacquart.apps.venueapp.venues.ui.viewmodel.DetailsViewModel
 import com.thomasmacquart.apps.venueapp.venues.ui.viewmodel.DetailsViewState
 import kotlinx.android.synthetic.main.details_fragment.*
@@ -43,7 +43,7 @@ class DetailsFragment : Fragment() {
 
         viewModel.getUiObservable().observe(this, Observer {
             when (it) {
-                is DetailsViewState.OnPopulateData -> populateData(it.venue)
+                is DetailsViewState.OnPopulateData -> populateData(it.uiModel)
                 is DetailsViewState.OnError -> showError(it.error)
                 DetailsViewState.OnLoading -> TODO()
             }.exhaustive
@@ -59,9 +59,9 @@ class DetailsFragment : Fragment() {
 
     }
 
-    private fun populateData(venue : Venue) {
-        details_venue_name.text = venue.name
-        details_venue_rating.text = venue.rating.toString()
+    private fun populateData(uiModel : DetailsUiModel) {
+        details_venue_name.text = uiModel.getName()
+        details_venue_rating.text = uiModel.getRating(requireActivity().applicationContext)
     }
 
     private fun showError(error: String) {
