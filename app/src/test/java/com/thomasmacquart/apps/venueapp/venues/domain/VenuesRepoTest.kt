@@ -56,10 +56,8 @@ internal class VenuesRepoTest {
 
         whenever(bounds.northEast).thenReturn(neLatLng)
         whenever(bounds.southWest).thenReturn(swLatLng)
-        whenever(neLatLng.latitude).thenReturn(1.0)
-        whenever(neLatLng.longitude).thenReturn(1.0)
-        whenever(swLatLng.latitude).thenReturn(1.0)
-        whenever(swLatLng.longitude).thenReturn(1.0)
+        whenever(neLatLng.formatForQuery()).thenReturn("1.0,1.0")
+        whenever(swLatLng.formatForQuery()).thenReturn("1.0,1.0")
 
         repo = VenuesRepo(searchApi, cache, detailsApi)
     }
