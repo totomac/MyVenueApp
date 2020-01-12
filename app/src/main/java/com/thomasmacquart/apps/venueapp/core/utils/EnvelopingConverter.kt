@@ -1,4 +1,4 @@
-package com.thomasmacquart.apps.venueapp.core.di
+package com.thomasmacquart.apps.venueapp.core.utils
 
 import com.squareup.moshi.Types
 import okhttp3.ResponseBody

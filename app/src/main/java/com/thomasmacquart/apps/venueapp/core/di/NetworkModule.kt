@@ -3,6 +3,8 @@ package com.thomasmacquart.apps.venueapp.core.di
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import com.thomasmacquart.apps.venueapp.BuildConfig
+import com.thomasmacquart.apps.venueapp.core.utils.CredentialsInterceptor
+import com.thomasmacquart.apps.venueapp.core.utils.EnvelopingConverter
 import com.thomasmacquart.apps.venueapp.venues.data.api.VenueDetailsApi
 import com.thomasmacquart.apps.venueapp.venues.data.api.VenuesSearchApi
 import dagger.Module

@@ -1,4 +1,4 @@
-package com.thomasmacquart.apps.venueapp.core.di
+package com.thomasmacquart.apps.venueapp.core.utils
 
 import okhttp3.Interceptor
 import okhttp3.Response
