@@ -1,4 +1,4 @@
-package com.thomasmacquart.apps.venueapp
+package com.thomasmacquart.apps.venueapp.core.utils
 
 import androidx.annotation.MainThread
 import androidx.lifecycle.LifecycleOwner

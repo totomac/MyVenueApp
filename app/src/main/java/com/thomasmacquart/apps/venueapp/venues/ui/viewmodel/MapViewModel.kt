@@ -5,7 +5,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
 import androidx.lifecycle.viewModelScope
-import com.thomasmacquart.apps.venueapp.SingleLiveEvent
+import com.thomasmacquart.apps.venueapp.core.utils.SingleLiveEvent
 import com.thomasmacquart.apps.venueapp.core.AsyncResponse
 import com.thomasmacquart.apps.venueapp.core.extensions.exhaustive
 import com.thomasmacquart.apps.venueapp.venues.data.entities.LatitudeLongitude
@@ -21,7 +21,8 @@ class MapViewModel @Inject constructor(private val repo : VenuesRepo) : ViewMode
     /**
      * [_uiObservable] ensure that markers are set only once during lifecycle of the fragment
      */
-    private val _uiObservable = SingleLiveEvent<MapViewState>()
+    private val _uiObservable =
+        SingleLiveEvent<MapViewState>()
     fun getUiObservable() : SingleLiveEvent<MapViewState> = _uiObservable
 
     fun loadVenues(lat : Double, lng : Double, bounds : MapBounds) {
