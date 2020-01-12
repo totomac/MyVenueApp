@@ -2,7 +2,7 @@ package com.thomasmacquart.apps.venueapp.venues.ui.viewmodel
 
 import androidx.fragment.app.FragmentActivity
 import androidx.lifecycle.*
-import com.thomasmacquart.apps.venueapp.core.AsyncResponse
+import com.thomasmacquart.apps.venueapp.core.utils.AsyncResponse
 import com.thomasmacquart.apps.venueapp.core.extensions.exhaustive
 import com.thomasmacquart.apps.venueapp.venues.data.entities.Venue
 import com.thomasmacquart.apps.venueapp.venues.domain.VenuesRepo

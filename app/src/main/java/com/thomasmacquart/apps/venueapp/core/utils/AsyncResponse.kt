@@ -1,4 +1,4 @@
-package com.thomasmacquart.apps.venueapp.core
+package com.thomasmacquart.apps.venueapp.core.utils
 
 sealed class AsyncResponse<out T : Any> {
     data class Success<out T : Any>(val data: T) : AsyncResponse<T>()

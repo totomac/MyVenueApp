@@ -6,7 +6,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
 import androidx.lifecycle.viewModelScope
 import com.thomasmacquart.apps.venueapp.core.utils.SingleLiveEvent
-import com.thomasmacquart.apps.venueapp.core.AsyncResponse
+import com.thomasmacquart.apps.venueapp.core.utils.AsyncResponse
 import com.thomasmacquart.apps.venueapp.core.extensions.exhaustive
 import com.thomasmacquart.apps.venueapp.venues.data.entities.LatitudeLongitude
 import com.thomasmacquart.apps.venueapp.venues.data.entities.MapBounds

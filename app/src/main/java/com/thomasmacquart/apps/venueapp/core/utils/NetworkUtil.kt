@@ -1,6 +1,5 @@
 package com.thomasmacquart.apps.venueapp.core.utils
 
-import com.thomasmacquart.apps.venueapp.core.AsyncResponse
 import retrofit2.Response
 import java.io.IOException
 

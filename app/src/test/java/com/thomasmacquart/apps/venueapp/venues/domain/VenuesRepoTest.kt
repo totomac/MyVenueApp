@@ -1,7 +1,7 @@
 package com.thomasmacquart.apps.venueapp.venues.domain
 
 import com.nhaarman.mockitokotlin2.*
-import com.thomasmacquart.apps.venueapp.core.AsyncResponse
+import com.thomasmacquart.apps.venueapp.core.utils.AsyncResponse
 import com.thomasmacquart.apps.venueapp.utils.CoroutineTestExtension
 import com.thomasmacquart.apps.venueapp.utils.InstantExecutorExtension
 import com.thomasmacquart.apps.venueapp.venues.data.VenuesCache

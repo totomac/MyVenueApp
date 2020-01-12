@@ -1,6 +1,6 @@
 package com.thomasmacquart.apps.venueapp.venues.domain
 
-import com.thomasmacquart.apps.venueapp.core.AsyncResponse
+import com.thomasmacquart.apps.venueapp.core.utils.AsyncResponse
 import com.thomasmacquart.apps.venueapp.core.extensions.exhaustive
 import com.thomasmacquart.apps.venueapp.core.utils.safeApiCall
 import com.thomasmacquart.apps.venueapp.venues.data.api.VenueDetailsApi
@@ -8,11 +8,9 @@ import com.thomasmacquart.apps.venueapp.venues.data.api.VenuesSearchApi
 import com.thomasmacquart.apps.venueapp.venues.data.entities.MapBounds
 import com.thomasmacquart.apps.venueapp.venues.data.entities.Venue
 import com.thomasmacquart.apps.venueapp.venues.data.VenuesCache
-import com.thomasmacquart.apps.venueapp.venues.data.api.SearchResponse
 import com.thomasmacquart.apps.venueapp.venues.data.entities.LatitudeLongitude
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
-import java.io.IOException
 import javax.inject.Inject
 
 class VenuesRepo @Inject constructor(
