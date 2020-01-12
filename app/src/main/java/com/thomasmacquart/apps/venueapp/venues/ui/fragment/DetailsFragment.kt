@@ -45,7 +45,7 @@ class DetailsFragment : Fragment() {
             when (it) {
                 is DetailsViewState.OnPopulateData -> populateData(it.uiModel)
                 is DetailsViewState.OnError -> showError(it.error)
-                DetailsViewState.OnLoading -> TODO()
+                DetailsViewState.OnLoading -> details_statefull.showLoading()
             }.exhaustive
         })
 
@@ -60,11 +60,18 @@ class DetailsFragment : Fragment() {
     }
 
     private fun populateData(uiModel : DetailsUiModel) {
+        details_statefull.showContent()
         details_venue_name.text = uiModel.getName()
         details_venue_rating.text = uiModel.getRating(requireActivity().applicationContext)
     }
 
     private fun showError(error: String) {
-        Toast.makeText(requireActivity(), error, Toast.LENGTH_LONG).show()
+        val venueId = DetailsFragmentArgs.fromBundle(
+            requireArguments()
+        ).venueId
+
+        details_statefull.showError(error, View.OnClickListener {
+            viewModel.loadVenueDetails(venueId)
+        })
     }
 }

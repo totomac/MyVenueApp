@@ -5,7 +5,6 @@ import com.nhaarman.mockitokotlin2.whenever
 import com.thomasmacquart.apps.venueapp.R
 import com.thomasmacquart.apps.venueapp.venues.data.entities.Venue
 import org.junit.Assert.assertEquals
-import org.junit.Before
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.DisplayName
 import org.junit.jupiter.api.Nested

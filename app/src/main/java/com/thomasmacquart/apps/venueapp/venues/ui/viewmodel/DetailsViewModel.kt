@@ -18,6 +18,7 @@ class DetailsViewModel @Inject constructor(
     fun getUiObservable() : LiveData<DetailsViewState> = _uiObservable
 
     fun loadVenueDetails(venueId : String) {
+        _uiObservable.value = DetailsViewState.OnLoading
         viewModelScope.launch {
             val result = repo.loadVenueDetails(venueId)
             when (result) {
